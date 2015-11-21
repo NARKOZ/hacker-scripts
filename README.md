@@ -1,4 +1,4 @@
-# DevOps Scripts
+# Hacker Scripts
 
 Based on a _[true
 story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
@@ -22,7 +22,7 @@ story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
 Scripts are written in Ruby.  
 Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
 
-### Usage
+## Usage
 
 Install required gems: `gem install dotenv twilio gmail whenever`  
 Set environment variables. See `.env.example`
