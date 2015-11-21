@@ -33,10 +33,10 @@ Example cron:
 # Runs `smack_my_bitch_up` daily at 9:20 pm.
 20 21 * * * /bin/bash -l -c 'ruby smack_my_bitch_up.rb'
 
-# Runs `kumar_asshole` every 10 minutes.
+# Runs `hangover` daily at 8:45 am.
 45 8 * * * /bin/bash -l -c 'ruby hangover.rb'
 
-# Runs `hangover` daily at 8:45 am.
+# Runs `kumar_asshole` every 10 minutes.
 0,10,20,30,40,50 * * * * /bin/bash -l -c 'ruby kumar_asshole.rb'
 
 # Runs `fucking_coffee` hourly from 9am to 6pm.
