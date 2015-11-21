@@ -30,7 +30,7 @@ Set environment variables. See `.env.example`
 Example cron:
 
 ```sh
-# Runs `smack_my_bitch_up` daily at 9:20 am.
+# Runs `smack_my_bitch_up` daily at 9:20 pm.
 20 21 * * * /bin/bash -l -c 'ruby smack_my_bitch_up.rb'
 
 # Runs `kumar_asshole` every 10 minutes.
