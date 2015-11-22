@@ -9,25 +9,36 @@ story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
 
 > xxx: You're gonna love this
 
-> xxx: `smack-my-bitch-up.sh` - sends a text message "late at work" to his wife (apparently). Automatically picks reasons from an array of strings, randomly. Runs inside a cron-job. The job fires if there are active SSH-sessions on the server after 9pm with his login.
+> xxx: [`smack-my-bitch-up.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/smack-my-bitch-up.sh) - sends a text message "late at work" to his wife (apparently). Automatically picks reasons from an array of strings, randomly. Runs inside a cron-job. The job fires if there are active SSH-sessions on the server after 9pm with his login.
 
 > xxx: `kumar-asshole.sh` - scans the inbox for emails from "Kumar" (a DBA at our clients). Looks for keywords like "help", "trouble", "sorry" etc. If keywords are found - the script SSHes into the clients server and rolls back the staging database to the latest backup. Then sends a reply "no worries mate, be careful next time".
 
-> xxx: `hangover.sh` - another cron-job that is set to specific dates. Sends automated emails like "not feeling well/gonna work from home" etc. Adds a random "reason" from another predefined array of strings. Fires if there are no interactive sessions on the server at 8:45am.
+> xxx: [`hangover.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/hangover.sh) - another cron-job that is set to specific dates. Sends automated emails like "not feeling well/gonna work from home" etc. Adds a random "reason" from another predefined array of strings. Fires if there are no interactive sessions on the server at 8:45am.
 
 > xxx: (and the oscar goes to) `fucking-coffee.sh` - this one waits exactly 17 seconds (!), then opens an SSH session to our coffee-machine (we had no frikin idea the coffee machine is on the network, runs linux and has SSHD up and running) and sends some weird gibberish to it. Looks binary. Turns out this thing starts brewing a mid-sized half-caf latte and waits another 24 (!) seconds before pouring it into a cup. The timing is exactly how long it takes to walk to the machine from the dudes desk.
 
 > xxx: holy sh*t I'm keeping those
 
-Scripts are written in Ruby.  
 Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
 
 ## Usage
 
-Install required gems: `gem install dotenv twilio gmail whenever`  
-Set environment variables. See `.env.example`
+You need these environment variables:
 
-Example cron:
+```sh
+# used in `smack-my-bitch-up` and `hangover` scripts
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TWILIO_AUTH_TOKEN=yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+
+# used in `kumar_asshole` script
+GMAIL_USERNAME=admin@example.org
+GMAIL_PASSWORD=password
+```
+
+For Ruby scripts you need to install gems:
+`gem install dotenv twilio gmail whenever`
+
+## Cron jobs
 
 ```sh
 # Runs `smack_my_bitch_up` daily at 9:20 pm.
@@ -41,9 +52,12 @@ Example cron:
 
 # Runs `fucking_coffee` hourly from 9am to 6pm.
 0 9,10,11,12,13,14,15,16,17,18 * * * /bin/bash -l -c 'ruby fucking_coffee.rb'
+
+# Runs `hangover.sh` daily at 8:45am with logfile output.
+45 8 * * * /bin/bash -l -c '/path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1'
 ```
 
-Check `config/schedule.rb`.
+Check `config/schedule.rb` file.
 
 ---
 Code is released under WTFPL.
