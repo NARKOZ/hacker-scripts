@@ -12,6 +12,6 @@ every :day, at: '8:45 am' do
   command 'ruby hangover.rb'
 end
 
-every :hour, at: 9..18 do
+every :day, at: 9..18 do
   command 'ruby fucking_coffee.rb'
 end

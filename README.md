@@ -40,7 +40,7 @@ Example cron:
 0,10,20,30,40,50 * * * * /bin/bash -l -c 'ruby kumar_asshole.rb'
 
 # Runs `fucking_coffee` hourly from 9am to 6pm.
-9,10,11,12,13,14,15,16,17,18 * * * * /bin/bash -l -c 'ruby fucking_coffee.rb'
+0 9,10,11,12,13,14,15,16,17,18 * * * /bin/bash -l -c 'ruby fucking_coffee.rb'
 ```
 
 Check `config/schedule.rb`.
