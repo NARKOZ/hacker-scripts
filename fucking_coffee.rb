@@ -3,6 +3,9 @@
 # Skip on weekends
 exit if Time.now.saturday? || Time.now.sunday?
 
+# Exit early if no sessions with my_username are found
+exit if `who`[/my_username/].nil?
+
 require 'net/telnet'
 
 coffee_machine_ip = '10.10.42.42'
