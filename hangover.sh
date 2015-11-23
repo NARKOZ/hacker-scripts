@@ -8,7 +8,7 @@ if [ "$DAYOFWEEK" -eq 6 ] || [ "$DAYOFWEEK" -eq 7 ]; then
 fi
 
 # Exit early if any session with my_username is found
-if who | grep -wq 'my_username'; then
+if who | grep -wq $USER; then
   exit
 fi
 
