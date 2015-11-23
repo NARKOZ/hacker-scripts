@@ -8,7 +8,7 @@ import time
 today = datetime.date.today()
 
 # skip weekends
-if today.strftime('%A') == 'Saturday' || today('%A') == 'Sunday':
+if today.strftime('%A') in ('Saturday', 'Sunday'):
     sys.exit()
 
 # exit if no sessions with my username are found
