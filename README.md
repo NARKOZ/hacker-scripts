@@ -37,28 +37,23 @@ GMAIL_PASSWORD=password
 ```
 
 For Ruby scripts you need to install gems:
-`gem install dotenv twilio gmail whenever`
+`gem install dotenv twilio gmail`
 
 ## Cron jobs
 
 ```sh
-# Runs `smack_my_bitch_up` daily at 9:20 pm.
-20 21 * * * /bin/bash -l -c 'ruby smack_my_bitch_up.rb'
+# Runs `smack-my-bitch-up.sh` daily at 9:20 pm.
+20 21 * * * /path/to/scripts/smack-my-bitch-up.sh >> /path/to/smack-my-bitch-up.log 2>&1
 
-# Runs `hangover` daily at 8:45 am.
-45 8 * * * /bin/bash -l -c 'ruby hangover.rb'
+# Runs `hangover.sh` daily at 8:45 am.
+45 8 * * * /path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1
 
-# Runs `kumar_asshole` every 10 minutes.
-0,10,20,30,40,50 * * * * /bin/bash -l -c 'ruby kumar_asshole.rb'
+# Runs `kumar-asshole.sh` every 10 minutes.
+*/10 * * * * /path/to/scripts/kumar-asshole.sh
 
-# Runs `fucking_coffee` hourly from 9am to 6pm.
-0 9,10,11,12,13,14,15,16,17,18 * * * /bin/bash -l -c 'ruby fucking_coffee.rb'
-
-# Runs `hangover.sh` daily at 8:45am with logfile output.
-45 8 * * * /bin/bash -l -c '/path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1'
+# Runs `fucking-coffee.sh` hourly from 9am to 6pm.
+0 9-18 * * * /path/to/scripts/fucking-coffee.sh
 ```
-
-Check `config/schedule.rb` file.
 
 ---
 Code is released under WTFPL.
