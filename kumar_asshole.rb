@@ -8,7 +8,7 @@ Dotenv.load
 GMAIL_USERNAME = ENV['GMAIL_USERNAME']
 GMAIL_PASSWORD = ENV['GMAIL_PASSWORD']
 
-gmail = Gmail.connect(username, password)
+gmail = Gmail.connect(GMAIL_USERNAME, GMAIL_PASSWORD)
 
 KEYWORDS_REGEX = /sorry|help|wrong/i
 
