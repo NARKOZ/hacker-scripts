@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import datetime
 import sys
 import subprocess
@@ -30,13 +31,4 @@ time.sleep(64)
 
 # love the smell!
 con.write("sys pour\n")
-con.close()
-
-
-
-
-
-
-
-
-    
+con.close()    
