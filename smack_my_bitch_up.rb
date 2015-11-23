@@ -10,8 +10,8 @@ Dir.mkdir('logs') unless File.exists?(log_file_name)
 
 LOG_FILE = File.open(log_file_name, 'a+')
 
-# Exit early if no sessions with my_username are found
-exit if `who`[/my_username/].nil?
+# Exit early if no sessions with my username are found
+exit if `who -q`.include? ENV['USER']
 
 require 'dotenv'
 require 'twilio-ruby'
