@@ -16,14 +16,14 @@ gmail.inbox.find(:unread, from: 'kumar.a@example.com').each do |email|
   if email.body[KEYWORDS_REGEX]
     # Restore DB and send a reply
     email.label('Database fixes')
-    reply = reply_to(email.subject)
+    reply = create_reply(email.subject)
     gmail.deliver(reply)
   end
 end
 
-def reply_to(subject)
+def create_reply(subject)
   gmail.compose do
-    to "email@example.com"
+    to "kumar.a@example.com"
     subject "RE: #{subject}"
     body "No problem. I've fixed it. \n\n Please be careful next time."
   end
