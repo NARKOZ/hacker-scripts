@@ -25,7 +25,11 @@ EXCUSES=(
 rand=$[ $RANDOM % ${#EXCUSES[@]} ]
 
 RANDOM_EXCUSE=${EXCUSES[$rand]}
-MESSAGE="Gonna work from home. "$RANDOM_EXCUSE
+if [ "$RANDOM_EXCUSE" = "Locked out" ];then
+  MESSAGE="Gonna work from outside of my home. "$RANDOM_EXCUSE
+else
+  MESSAGE="Gonna work from home. "$RANDOM_EXCUSE
+fi
 
 # Send a text message
 RESPONSE=`curl -fSs -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" \
