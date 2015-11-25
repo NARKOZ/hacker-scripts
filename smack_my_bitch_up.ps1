@@ -7,7 +7,7 @@ if ($DAYOFWEEK -eq 6 -or $DAYOFWEEK -eq 7) {
 
 # Exit early if no sessions with my username are found
 if ((QWINSTA $env:USERNAME | measure).Count -gt 0){
-    #return
+    return
 }
 
 # Phone numbers
