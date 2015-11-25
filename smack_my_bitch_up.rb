@@ -33,11 +33,14 @@ reasons = [
   'Someone fucked the system again'
 ]
 
+sample = reasons.sample
+
 # Send a text message
 @twilio.messages.create(
-  from: my_number, to: her_number, body: 'Late at work. ' + reasons.sample
+  from: my_number, to: her_number, body: 'Late at work. ' + sample
 )
 
 # Log this
 LOG_FILE.puts("Message sent at: #{Time.now}")
+LOG_FILE.puts("Reason: #{sample}")
 LOG_FILE.close
