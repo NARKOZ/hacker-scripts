@@ -1,5 +1,26 @@
 #!/bin/sh -e
 
+# Fill in the blanks
+# Phone numbers with leading country code: +46 012 345 6788
+MY_NUMBER=''
+NUMBER_OF_BOSS=''
+
+# Twilio account information
+TWILIO_ACCOUNT_SID=""
+TWILIO_AUTH_TOKEN=""
+
+# Check for vars
+if [ -z "$MY_NUMBER" ] || [ -z "$NUMBER_OF_BOSS" ]; then
+  echo "You need to set the phone numbers"
+  exit 1
+fi
+
+# Check for Twilio
+if [ -z "$TWILIO_AUTH_TOKEN" ] || [ -z "$TWILIO_ACCOUNT_SID" ]; then
+  echo "You need to set the twilio variables"
+  exit 1
+fi
+
 DAYOFWEEK=$(date +%u)
 
 # Skip on weekends
@@ -11,10 +32,6 @@ fi
 if who | grep -wq $USER; then
   exit
 fi
-
-# Phone numbers
-MY_NUMBER='+xxx'
-NUMBER_OF_BOSS='+xxx'
 
 EXCUSES=(
   'Locked out'
