@@ -42,16 +42,9 @@ client.messages.create(
 )
 
 try:
-    f = open('logs/file.txt', 'a')
-except IOError as e:
-    # dir & file don't exist; create them
-    os.mkdir('logs')
-    f = open('logs/file.txt', 'a')
+    if not os.path.exists('logs'):
+        os.mkdir('logs')
+    with open('logs/file.txt', 'a') as lh:
+        lh.write("Message sent at " + strftime("%a, %d %b %Y %H:%M:%S") + "\n")
 except Exception as e:
     print e
-else:
-    pass
-
-# log it
-f.write("Message sent at " + strftime("%a, %d %b %Y %H:%M:%S") + "\n")
-f.close()
