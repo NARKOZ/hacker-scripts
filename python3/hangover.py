@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import datetime
 import random
 
 from twilio import TwilioRestException
@@ -18,10 +17,6 @@ LOG_FILE_PATH = get_log_path('hangover.txt')
 
 
 def main():
-    # Skip on weekends.
-    if datetime.date.today().weekday() in (0, 6,):
-        return
-
     # Exit early if any session with my_username is found.
     if any(s.startswith(b'my_username ') for s in sh('who').split(b'\n')):
         return
