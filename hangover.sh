@@ -1,12 +1,5 @@
 #!/bin/sh -e
 
-DAYOFWEEK=$(date +%u)
-
-# Skip on weekends
-if [ "$DAYOFWEEK" -eq 6 ] || [ "$DAYOFWEEK" -eq 7 ]; then
-  exit
-fi
-
 # Exit early if any session with my username is found
 if who | grep -wq $USER; then
   exit

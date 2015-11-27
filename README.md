@@ -42,17 +42,17 @@ For Ruby scripts you need to install gems:
 ## Cron jobs
 
 ```sh
-# Runs `smack-my-bitch-up.sh` daily at 9:20 pm.
-20 21 * * * /path/to/scripts/smack-my-bitch-up.sh >> /path/to/smack-my-bitch-up.log 2>&1
+# Runs `smack-my-bitch-up.sh` monday to friday at 9:20 pm.
+20 21 * * 1-5 /path/to/scripts/smack-my-bitch-up.sh >> /path/to/smack-my-bitch-up.log 2>&1
 
-# Runs `hangover.sh` daily at 8:45 am.
-45 8 * * * /path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1
+# Runs `hangover.sh` monday to friday at 8:45 am.
+45 8 * * 1-5 /path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1
 
 # Runs `kumar-asshole.sh` every 10 minutes.
 */10 * * * * /path/to/scripts/kumar-asshole.sh
 
-# Runs `fucking-coffee.sh` hourly from 9am to 6pm.
-0 9-18 * * * /path/to/scripts/fucking-coffee.sh
+# Runs `fucking-coffee.sh` hourly from 9am to 6pm on weekdays.
+0 9-18 * * 1-5 /path/to/scripts/fucking-coffee.sh
 ```
 
 ---

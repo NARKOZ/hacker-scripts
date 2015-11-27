@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 
-import datetime
 import os
 import random
 from twilio.rest import TwilioRestClient
 import subprocess
 import sys
 from time import strftime
-
-
-today = datetime.date.today()
-
-# skip weekends
-if today.strftime('%A') == 'Saturday' || today('%A') == 'Sunday':
-    sys.exit()
 
 # exit if no sessions with my username are found
 output = subprocess.check_output('who')
