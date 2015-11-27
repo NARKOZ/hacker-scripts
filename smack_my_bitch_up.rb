@@ -3,13 +3,6 @@
 # Skip on weekends
 exit if Time.now.saturday? || Time.now.sunday?
 
-log_file_name = File.dirname(__FILE__) + '/logs/smack_my_bitch_up.txt'
-
-# Be sure that logs dir always exists
-Dir.mkdir('logs') unless File.exists?(log_file_name)
-
-LOG_FILE = File.open(log_file_name, 'a+')
-
 # Exit early if no sessions with my username are found
 exit if `who -q`.include? ENV['USER']
 
@@ -27,17 +20,16 @@ TWILIO_AUTH_TOKEN  = ENV['TWILIO_AUTH_TOKEN']
 my_number  = '+xxx'
 her_number = '+xxx'
 
-reasons = [
+reason = [
   'Working hard',
   'Gotta ship this feature',
   'Someone fucked the system again'
-]
+].sample
 
 # Send a text message
 @twilio.messages.create(
-  from: my_number, to: her_number, body: 'Late at work. ' + reasons.sample
+  from: my_number, to: her_number, body: "Late at work. #{reason}"
 )
 
 # Log this
-LOG_FILE.puts("Message sent at: #{Time.now}")
-LOG_FILE.close
+puts "Message sent at: #{Time.now} | Reason: #{reason}"

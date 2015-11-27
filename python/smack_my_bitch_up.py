@@ -42,17 +42,4 @@ client.messages.create(
     body="Late at work. " + random.choice(reasons)
 )
 
-try:
-    f = open('logs/file.txt', 'a')
-except IOError as e:
-    # dir & file don't exist; create them
-    os.mkdir('logs')
-    f = open('logs/file.txt', 'a')
-except Exception as e:
-    print e
-else:
-    pass
-
-# log it
-f.write("Message sent at " + strftime("%a, %d %b %Y %H:%M:%S") + "\n")
-f.close()
+print "Message sent at " + strftime("%a, %d %b %Y %H:%M:%S")
