@@ -4,7 +4,7 @@
 exit if Time.now.saturday? || Time.now.sunday?
 
 # Exit early if no sessions with my username are found
-exit if `who -q`.include? ENV['USER']
+exit unless `who -q`.include? ENV['USER']
 
 require 'dotenv'
 require 'twilio-ruby'
