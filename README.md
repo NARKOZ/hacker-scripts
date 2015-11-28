@@ -15,7 +15,7 @@ story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
 
 > xxx: [`hangover.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/hangover.sh) - another cron-job that is set to specific dates. Sends automated emails like "not feeling well/gonna work from home" etc. Adds a random "reason" from another predefined array of strings. Fires if there are no interactive sessions on the server at 8:45am.
 
-> xxx: (and the oscar goes to) [`fucking-coffee.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/fucking-coffee.sh) - this one waits exactly 17 seconds (!), then opens an SSH session to our coffee-machine (we had no frikin idea the coffee machine is on the network, runs linux and has SSHD up and running) and sends some weird gibberish to it. Looks binary. Turns out this thing starts brewing a mid-sized half-caf latte and waits another 24 (!) seconds before pouring it into a cup. The timing is exactly how long it takes to walk to the machine from the dudes desk.
+> xxx: (and the oscar goes to) [`fucking-coffee.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/fucking-coffee.sh) - this one waits exactly 17 seconds (!), then opens a telnet session to our coffee-machine (we had no frikin idea the coffee machine is on the network, runs linux and has a TCP socket up and running) and sends something like `sys brew`. Turns out this thing starts brewing a mid-sized half-caf latte and waits another 24 (!) seconds before pouring it into a cup. The timing is exactly how long it takes to walk to the machine from the dudes desk.
 
 > xxx: holy sh*t I'm keeping those
 
@@ -37,22 +37,22 @@ GMAIL_PASSWORD=password
 ```
 
 For Ruby scripts you need to install gems:
-`gem install dotenv twilio gmail`
+`gem install dotenv twilio-ruby gmail`
 
 ## Cron jobs
 
 ```sh
-# Runs `smack-my-bitch-up.sh` daily at 9:20 pm.
-20 21 * * * /path/to/scripts/smack-my-bitch-up.sh >> /path/to/smack-my-bitch-up.log 2>&1
+# Runs `smack-my-bitch-up.sh` monday to friday at 9:20 pm.
+20 21 * * 1-5 /path/to/scripts/smack-my-bitch-up.sh >> /path/to/smack-my-bitch-up.log 2>&1
 
-# Runs `hangover.sh` daily at 8:45 am.
-45 8 * * * /path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1
+# Runs `hangover.sh` monday to friday at 8:45 am.
+45 8 * * 1-5 /path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1
 
 # Runs `kumar-asshole.sh` every 10 minutes.
 */10 * * * * /path/to/scripts/kumar-asshole.sh
 
-# Runs `fucking-coffee.sh` hourly from 9am to 6pm.
-0 9-18 * * * /path/to/scripts/fucking-coffee.sh
+# Runs `fucking-coffee.sh` hourly from 9am to 6pm on weekdays.
+0 9-18 * * 1-5 /path/to/scripts/fucking-coffee.sh
 ```
 
 ---

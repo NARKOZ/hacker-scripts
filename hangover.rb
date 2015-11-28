@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-# Skip on weekends
-exit if Time.now.saturday? || Time.now.sunday?
-
 # Exit early if sessions with my username are found
 exit if `who -q`.include? ENV['USER']
 

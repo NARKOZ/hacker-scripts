@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import datetime
 import telnetlib
 import time
 
@@ -13,10 +12,6 @@ COFFEE_MACHINE_PROM = 'Password: '
 
 
 def main():
-    # Skip on weekends.
-    if datetime.date.today().weekday() in (0, 6,):
-        return
-
     # Exit early if no sessions with my_username are found.
     if not any(s.startswith(b'my_username ') for s in sh('who').split(b'\n')):
         return

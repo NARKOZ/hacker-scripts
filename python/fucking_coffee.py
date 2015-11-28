@@ -1,16 +1,9 @@
 #!/usr/bin/env python
 
-import datetime
 import sys
 import subprocess
 import telnetlib
 import time
-
-today = datetime.date.today()
-
-# skip weekends
-if today.strftime('%A') in ('Saturday', 'Sunday'):
-    sys.exit()
 
 # exit if no sessions with my username are found
 output = subprocess.check_output('who')
