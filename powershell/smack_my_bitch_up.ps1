@@ -14,21 +14,19 @@ if (-not (QWINSTA | FINDSTR $env:USERNAME)) {
 $MY_NUMBER='+xxx'
 $HER_NUMBER='+xxx'
 
-$REASONS=
+$REASONS =
   'Working hard',
   'Gotta ship this feature',
   'Someone fucked the system again'
-
-$RAND = Get-Random -Maximum $REASONS.Count
-
-$MSG="Late at work. $REASONS[$RAND]"
+$reason = $REASONS | Get-Random
+$message = "Late at work. $reason."
 
 $API_URL = "https://api.twilio.com/2010-04-01/Accounts/$env:TWILIO_ACCOUNT_SID/Messages"
 $BASE64AUTHINFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $env:TWILIO_ACCOUNT_SID,$env:TWILIO_AUTH_TOKEN)))
 $body = @{
     From = $MY_NUMBER;
     To = $HER_NUMBER;
-    Body = $MSG;
+    Body = $message;
 }
 
 #Send a text message and Log errors
