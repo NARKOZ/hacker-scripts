@@ -5,7 +5,6 @@ require 'vendor/autoload.php';
 
 use Bestnetwork\Telnet\TelnetClient;
 
-(date('N') < 6) or exit('weekend');
 (strpos(exec('who'), getenv('USER')) !== false) or exit('no session');
 sleep(17);
 $con = new TelnetClient('10.10.42.42');
