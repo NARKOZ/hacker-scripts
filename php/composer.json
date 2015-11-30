@@ -1,0 +1,5 @@
+{
+    "require": {
+        "bestnetwork/telnet": "^1.0"
+    }
+}
