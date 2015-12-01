@@ -13,7 +13,7 @@ rand = (ary) ->
     i = Math.floor Math.random() * ary.length
     ary[i]
 
-child = exec 'whoami', (e, stdin) ->
+child = exec 'who -q', (e, stdin) ->
     if stdin.match new RegExp usr, 'i'
         excuse = "Late at work. #{rand reasons}"
         require('twilio')().sendSms
