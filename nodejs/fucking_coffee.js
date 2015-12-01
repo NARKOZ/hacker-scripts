@@ -1,21 +1,21 @@
 /* Before running:
-npm install telnet-client
+        npm install telnet-client
 */
 
 var exec = require('child_process').exec;
-var telnet = require('telnet-client')
+var telnet = require('telnet-client');
 
-var me = 'my_username'
+var me = 'my_username';
 
 exec("who", function(error, stdout, stderr) {
 
     // Exit if no sessions with my username are found
     if(stdout.indexOf(me) == -1)
-        process.exit(/*1*/)
+        process.exit(/*1*/);
 
-    var coffee_machine_ip = 'xxx.xxx.xxx.xxx'
-    var password = 'xxxx'
-    var con = new telnet()
+    var coffee_machine_ip = 'xxx.xxx.xxx.xxx';
+    var password = 'xxxx';
+    var con = new telnet();
 
     con.on('ready', function(prompt) {
         con.exec('Password: ' + password, function(error, res) {
@@ -28,12 +28,12 @@ exec("who", function(error, stdout, stderr) {
 
                     // Pour Coffee!
                     con.exec('sys pour', function(error, res) {
-                        con.end()
-                    })
+                        con.end();
+                    });
                 }, 24000);
-            })
-        })
-    })
+            });
+        });
+    });
 
-    con.connect({host: coffee_machine_ip})
+    con.connect({host: coffee_machine_ip});
 });
