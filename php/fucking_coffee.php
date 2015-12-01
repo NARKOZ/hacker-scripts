@@ -3,6 +3,9 @@
 
 require 'vendor/autoload.php';
 
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
 use Bestnetwork\Telnet\TelnetClient;
 
 (strpos(exec('who'), getenv('USER')) !== false) or exit('no session');
