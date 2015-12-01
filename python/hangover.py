@@ -7,9 +7,7 @@ from time import strftime
 import subprocess
 
 # exit if sessions with my username are found
-output = subprocess.check_output('who')
-
-if os.environ.get('USER') in output:
+if os.environ.get('USER') in subprocess.check_output('who'):
     sys.exit()
 
 # returns 'None' if the key doesn't exist

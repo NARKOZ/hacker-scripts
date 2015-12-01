@@ -6,8 +6,7 @@ import telnetlib
 import time
 
 # exit if no sessions with my username are found
-output = subprocess.check_output('who')
-if 'my_username' not in output:
+if os.environ.get('USER') in subprocess.check_output('who'):
     sys.exit()
 
 coffee_machine_ip = '10.10.42.42'
@@ -24,4 +23,4 @@ time.sleep(64)
 
 # love the smell!
 con.write("sys pour\n")
-con.close()    
+con.close()
