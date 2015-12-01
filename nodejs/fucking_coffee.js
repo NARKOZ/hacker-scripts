@@ -2,6 +2,8 @@
         npm install telnet-client
 */
 
+#!/usr/bin/env node
+
 var exec = require('child_process').exec;
 var telnet = require('telnet-client');
 
