@@ -27,13 +27,16 @@ Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
 You need these environment variables:
 
 ```sh
+# used in `smack-my-bitch-up`, `fucking-coffee` and `hangover` scripts
+USER=<username>
+
 # used in `smack-my-bitch-up` and `hangover` scripts
-TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-TWILIO_AUTH_TOKEN=yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+TWILIO_ACCOUNT_SID=<twilio_account_sid>
+TWILIO_AUTH_TOKEN=<twilio_auth_token>
 
 # used in `kumar_asshole` script
-GMAIL_USERNAME=admin@example.org
-GMAIL_PASSWORD=password
+GMAIL_USERNAME=<gmail_username>
+GMAIL_PASSWORD=<gmail_password>
 ```
 
 For Ruby scripts you need to install gems:
