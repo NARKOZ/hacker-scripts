@@ -1,5 +1,6 @@
 {
     "require": {
-        "bestnetwork/telnet": "^1.0"
+        "bestnetwork/telnet": "^1.0",
+        "vlucas/phpdotenv": "^2.0"
     }
 }
