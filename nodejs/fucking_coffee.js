@@ -1,5 +1,5 @@
 /* Before running:
-        npm install telnet-client
+npm install telnet-client
 */
 
 var exec = require('child_process').exec;
@@ -13,13 +13,12 @@ exec("who", function(error, stdout, stderr) {
     if(stdout.indexOf(me) == -1)
         process.exit(/*1*/)
 
-    var coffee_machine_ip = '10.10.42.42'
-    var password = '1234'
-    var cmd = 'Password: ' + password
+    var coffee_machine_ip = 'xxx.xxx.xxx.xxx'
+    var password = 'xxxx'
     var con = new telnet()
 
     con.on('ready', function(prompt) {
-        con.exec(cmd, function(error, res) {
+        con.exec('Password: ' + password, function(error, res) {
 
             // Brew Coffee!
             con.exec('sys brew', function(error, res) {
