@@ -19,4 +19,5 @@ pattern = re.compile("\bsorry\b | \bhelp\b | \bwrong\b ", flags=re.I)
 for msg in msgs:
     if pattern.match(msg.body):
         msg.label("Database fixes")
-        msg.reply("No problem. I've fixed it. \n\n Please be careful next time.")
+        msg.reply("No problem. I've fixed it. \n\n"
+                  "Please be careful next time.")

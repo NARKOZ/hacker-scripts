@@ -8,22 +8,21 @@ import sys
 from time import strftime
 
 # exit if no sessions with my username are found
-output = subprocess.check_output('who')
-if 'my_username' not in output:
+if os.environ.get('USER') in subprocess.check_output('who'):
     sys.exit()
 
 # returns 'None' if the key doesn't exist
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN  = os.environ.get('TWILIO_AUTH_TOKEN')
+TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
 
 # Phone numbers
-my_number      = '+xxx'
+my_number = '+xxx'
 her_number = '+xxx'
 
 reasons = [
-  'Working hard',
-  'Gotta ship this feature',
-  'Someone fucked the system again'
+    'Working hard',
+    'Gotta ship this feature',
+    'Someone fucked the system again'
 ]
 
 client = TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
