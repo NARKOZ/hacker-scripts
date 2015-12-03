@@ -14,7 +14,7 @@ chmod +x ~/hangover.sh
 # Checks to see if job is in crontab already and if not updates cronto run the script only on weekdays @ 8:45am
 if ! crontab -u $USER -l | grep hangover.sh then
   echo "45 8 * * 1-5 $PATH/hangover.sh" >> newcronjob
-  crontab -e newcronjob
+  crontab newcronjob
 fi
 
 # Phone numbers
