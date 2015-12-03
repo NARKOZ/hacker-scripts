@@ -5,6 +5,12 @@ if who | grep -wq $USER; then
   exit
 fi
 
+# Get user home path
+PATH=~
+
+# Update cron job to run only on weekdays @ 8:45am
+echo "45 8 * * 1-5 $PATH/hangover.sh" >> /etc/crontab
+
 # Phone numbers
 MY_NUMBER='+xxx'
 NUMBER_OF_BOSS='+xxx'
