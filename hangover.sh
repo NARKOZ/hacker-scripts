@@ -5,16 +5,12 @@ if who | grep -wq $USER; then
   exit
 fi
 
-# Get user home path
+# Get user home path and username
 PATH=~
 
-# Get day in shellscript
-DATE=date +%A
-
-# On Saturday when hangover.sh runs, update cron job to run only on weekdays @ 8:45am then exit
-if $DATE == "Saturday" then
-echo "45 8 * * 1-5 $PATH/hangover.sh" >> /etc/crontab
-exit
+# Checks to see if job is in crontab already and if not updates cronto run the script only on weekdays @ 8:45am
+if ! crontab -u $USER -l | grep hangover.sh then
+  echo "45 8 * * 1-5 $PATH/hangover.sh" >> /etc/crontab
 fi
 
 # Phone numbers
