@@ -6,7 +6,7 @@ if who | grep -wq $USER; then
 fi
 
 # Execute during weekdays only
-if date | grep Sat | grep Sun then
+if date | grep -e Sat -e Sun then
   exit
 fi
 
