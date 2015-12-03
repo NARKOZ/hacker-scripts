@@ -8,8 +8,14 @@ fi
 # Get user home path
 PATH=~
 
-# Update cron job to run only on weekdays @ 8:45am
+# Get day in shellscript
+DATE=date +%A
+
+# On Saturday when hangover.sh runs, update cron job to run only on weekdays @ 8:45am then exit
+if $DATE == "Saturday" then
 echo "45 8 * * 1-5 $PATH/hangover.sh" >> /etc/crontab
+exit
+fi
 
 # Phone numbers
 MY_NUMBER='+xxx'
