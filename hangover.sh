@@ -1,5 +1,8 @@
 #!/bin/sh -e
 
+# Get User
+USER=whoami
+
 # Exit early if any session with my username is found
 if who | grep -wq $USER; then
   exit
