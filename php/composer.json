@@ -1,6 +1,7 @@
 {
     "require": {
         "bestnetwork/telnet": "^1.0",
-        "vlucas/phpdotenv": "^2.0"
+        "vlucas/phpdotenv": "^2.0",
+        "twilio/sdk": "^4.6"
     }
 }
