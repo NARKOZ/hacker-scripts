@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+# Get User
 USER=whoami
 
 # Exit early if no sessions with my username are found
