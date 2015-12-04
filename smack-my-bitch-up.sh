@@ -1,8 +1,18 @@
 #!/bin/sh -e
 
+USER=whoami
+
 # Exit early if no sessions with my username are found
 if ! who | grep -wq $USER; then
   exit
+fi
+
+# Get user home path and username
+PATH=~
+
+# Checks to see if job is in crontab already and if not updates cronto run the script only on weekdays @ 9:01pm
+if ! crontab -u $USER -l | grep smack-my-bitch-up.sh then
+  echo "01 9 * * 1-5 $PATH/smack-my-bitch-up.sh" >> /etc/crontab
 fi
 
 # Phone numbers
