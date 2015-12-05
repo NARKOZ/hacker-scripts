@@ -10,7 +10,7 @@ use Mail::Webmail::Gmail;
 # Config
 my $conf = Load( <<'...' );
 ---
-kumar_mail: kumar.a@examle.com
+kumar_mail: kumar.a@example.com
 database_regex: \S+_staging
 keywords_regex: sorry|help|wrong
 backup_path: /home/backups/databases/

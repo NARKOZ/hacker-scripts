@@ -17,7 +17,7 @@ TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN  = os.environ.get('TWILIO_AUTH_TOKEN')
 
 # Phone numbers
-my_number      = '+xxx'
+my_number  = '+xxx'
 her_number = '+xxx'
 
 reasons = [
@@ -30,7 +30,7 @@ client = TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 client.messages.create(
     to=her_number,
-    from=my_number,
+    from_=my_number,
     body="Late at work. " + random.choice(reasons)
 )
 

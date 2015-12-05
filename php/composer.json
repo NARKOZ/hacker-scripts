@@ -1,5 +1,10 @@
 {
     "require": {
+<<<<<<< HEAD
+=======
+        "bestnetwork/telnet": "^1.0",
+        "vlucas/phpdotenv": "^2.0",
+>>>>>>> NARKOZ/master
         "twilio/sdk": "^4.6"
     }
 }
