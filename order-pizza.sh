@@ -22,7 +22,6 @@ RESPONSE2=`curl -fSs -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" \
 -d "From=$MY_NUMBER" -d "To=$DOMINOS_NUMBER" -d "Body=$CONFIRM" \
 "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_ACCOUNT_SID/Messages"`
   
-
 # Log errors
 if [ $? -gt 0 ]; then
   echo "Failed to send SMS: $RESPONSE"
