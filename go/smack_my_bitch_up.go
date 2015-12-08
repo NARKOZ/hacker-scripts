@@ -31,7 +31,7 @@ func main(){
 
      response,err := exec.Command("curl","-fSs","-u",TWILIO_ACCOUNT_SID + ":" + TWILIO_AUTH_TOKEN, "-d", "From=" + MY_NUMBER, "-d", "To=" + HER_NUMBER, "-d" , "Body=" + message, "https://api.twilio.com/2010-04-01/Accounts/" + TWILIO_ACCOUNT_SID + "/Messages").Output()
      if(err != nil){
-	    fmt.Printf("Failed to send SMS: ",err)
+	    fmt.Printf("Failed to send SMS: %s",err)
 	    return
      }
 
