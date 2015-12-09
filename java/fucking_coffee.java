@@ -20,7 +20,7 @@ public class fucking_coffee{
         PrintWriter out = new PrintWriter(telnet.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(telnet.getInputStream()));
         Thread.sleep(DELAY_BEFORE_BREW*1000);
-        if(in.readLine() != PASSWORD_PROMPT){
+        if(!in.readLine().equals(PASSWORD_PROMPT)){
             return ;
         }
         out.println(PASSWORD);
