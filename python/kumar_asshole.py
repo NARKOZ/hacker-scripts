@@ -12,7 +12,7 @@ g = gmail.login(GMAIL_USERNAME, GMAIL_PASSWORD)
 if not g.logged_in:
     sys.exit()
 
-msgs = g.inbox().mail(sender="kumar.a@example.com", unread=True)
+msgs = g.inbox().mail(sender="kumar.a@example.com", unread=True, prefetch=True)
 
 pattern = re.compile("\bsorry\b | \bhelp\b | \bwrong\b ", flags=re.I)
 
