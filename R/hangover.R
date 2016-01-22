@@ -19,16 +19,17 @@ TWILIO_AUTH_TOKEN  = Sys.getenv('TWILIO_AUTH_TOKEN')
 
 # Phone numbers
 my_number = '+xxx'
-her_number = '+xxx'
+number_of_boss= '+xxx'
 
-reasons = c(
-  'Working hard',
-    'Gotta ship this feature',
-      'Someone fucked the system again'
+excuse = c(
+  'Locked out',
+  'Pipes broke',
+  'Food poisoning',
+  'Not feeling well'
       )
 
 POST(paste("https://api.twilio.com/2010-04-01/Accounts/",TWILIO_ACCOUNT_SID,"/Messages.json",sep=""),
-          body = list(From=my_number,To=her_number,Body=paste("Late at work. ", sample(reasons,1))),
+          body = list(From=my_number,To=number_of_boss,Body=paste("Gonna work from home. ", sample(excuse,1))),
 	            authenticate(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN) )
 
 print( paste("Message sent at",Sys.time()) )
