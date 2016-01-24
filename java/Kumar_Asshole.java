@@ -19,7 +19,7 @@ public class Kumar_Asshole {
 		Properties props = new Properties();
 
 		
-	
+	//modify below properties to your details
 	String host = "smtp.gmail.com";
 	String username = "yourmailaddress@example.com goes here";
 	String password = "your password goes here ";
