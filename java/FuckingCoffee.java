@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
  
-public class fucking_coffee{
+public class FuckingCoffee{
 
     private static final String MY_USERNAME = "my_username";
     private static final String PASSWORD_PROMPT = "Password: ";
