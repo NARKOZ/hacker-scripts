@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+//Pre-requisite apache http and twilio java libraries
+
 
 public class SmackMyBitch {
 
