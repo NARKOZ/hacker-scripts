@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "WhatsEasy",
+  "description": "WhatsApp Automator",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/"],
+
+      "js": ["jquery.js", "periodically.js"]
+    }
+  ],
+  "permissions": [
+     "tabs", "https://*/*"
+  ]
+
+}
