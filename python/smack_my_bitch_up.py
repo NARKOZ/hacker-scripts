@@ -30,7 +30,7 @@ client = TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 client.messages.create(
     to=her_number,
-    from_=my_number,
+    from=my_number,
     body="Late at work. " + random.choice(reasons)
 )
 
