@@ -5,6 +5,11 @@ if who | grep -wq $USER; then
   exit
 fi
 
+# Execute during weekdays only
+if date | grep -e Sat -e Sun then
+  exit
+fi
+
 # Phone numbers
 MY_NUMBER='+xxx'
 NUMBER_OF_BOSS='+xxx'
