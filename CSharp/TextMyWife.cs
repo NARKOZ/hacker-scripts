@@ -7,7 +7,7 @@ using Twilio;
 
 namespace Hacker_Scripts
 {
-    class SmackMyBitch
+    class TextMyWife
     {
         public static string TWILIO_ACCOUNT_SID = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
         public static string AUTH_TOKEN = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");

@@ -12,7 +12,7 @@ import java.util.Random;
 //Pre-requisite apache http and twilio java libraries
 
 
-public class SmackMyBitch {
+public class TextMyWife {
 
     public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
     public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");

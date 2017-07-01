@@ -9,7 +9,7 @@ story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
 
 > xxx: You're gonna love this
 
-> xxx: [`smack-my-bitch-up.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/smack-my-bitch-up.sh) - sends a text message "late at work" to his wife (apparently). Automatically picks reasons from an array of strings, randomly. Runs inside a cron-job. The job fires if there are active SSH-sessions on the server after 9pm with his login.
+> xxx: [`text-my-wife.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/text-my-wife.sh) - sends a text message "late at work" to his wife (apparently). Automatically picks reasons from an array of strings, randomly. Runs inside a cron-job. The job fires if there are active SSH-sessions on the server after 9pm with his login.
 
 > xxx: [`kumar-asshole.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/kumar-asshole.sh) - scans the inbox for emails from "Kumar" (a DBA at our clients). Looks for keywords like "help", "trouble", "sorry" etc. If keywords are found - the script SSHes into the clients server and rolls back the staging database to the latest backup. Then sends a reply "no worries mate, be careful next time".
 
@@ -27,7 +27,7 @@ Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
 You need these environment variables:
 
 ```sh
-# used in `smack-my-bitch-up` and `hangover` scripts
+# used in `text-my-wife` and `hangover` scripts
 TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 TWILIO_AUTH_TOKEN=yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
@@ -42,8 +42,8 @@ For Ruby scripts you need to install gems:
 ## Cron jobs
 
 ```sh
-# Runs `smack-my-bitch-up.sh` monday to friday at 9:20 pm.
-20 21 * * 1-5 /path/to/scripts/smack-my-bitch-up.sh >> /path/to/smack-my-bitch-up.log 2>&1
+# Runs `text-my-wife.sh` monday to friday at 9:20 pm.
+20 21 * * 1-5 /path/to/scripts/text-my-wife.sh >> /path/to/text-my-wife.log 2>&1
 
 # Runs `hangover.sh` monday to friday at 8:45 am.
 45 8 * * 1-5 /path/to/scripts/hangover.sh >> /path/to/hangover.log 2>&1
