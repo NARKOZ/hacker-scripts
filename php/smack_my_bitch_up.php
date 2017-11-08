@@ -8,7 +8,7 @@ require 'vendor/autoload.php';
 
 // Phone numbers
 $my_number = '+xxx';
-$her_number = '+xxx';
+$her_number = getenv('gf_nums'); // comma separated
 
 $reasons = [
 	'Working hard',
