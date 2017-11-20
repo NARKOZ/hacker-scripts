@@ -31,4 +31,4 @@ excuse = [
 )
 
 # Log this
-puts "Message sent at: #{Time.now} | Excuse: #{excuse}"
+puts "Message sent at: #{Time.now.strftime("%a, %d %b %Y %H:%M:%S")} | Excuse: #{excuse}"
