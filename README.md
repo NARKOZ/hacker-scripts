@@ -1,4 +1,5 @@
-# Hacker Scripts
+# Linux Scripts to Hack
+## Hacker Scripts
 
 Based on a _[true
 story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
