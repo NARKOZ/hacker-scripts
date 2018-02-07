@@ -1,4 +1,6 @@
-# Hacker Scripts
+# Linux Scripts to Hack
+## THis is example update
+## Hacker Scripts
 
 Based on a _[true
 story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
