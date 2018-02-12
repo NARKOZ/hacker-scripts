@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Simple script to connect to a coffee part using TelNet then issue specific commands that
-	brew and pourt a cup of coffee for the user.
+	brew and pour a cup of coffee for the user.
 .DESCRIPTION
     This script was converted using the ruby version of the fucking_coffee script. In this script,
     I left the use of environment variables since its only use was to determine if the user was
