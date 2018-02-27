@@ -19,14 +19,14 @@ namespace Hacker_Scripts
         {
             var twilio = new TwilioRestClient(TWILIO_ACCOUNT_SID, AUTH_TOKEN);
 
-            string[] randomMessages = {
+            var randomMessages = {
                 "Working hard",
                 "Gotta ship this feature",
                 "Someone fucked the system again"
             };
 
-            int randomIndex = new Random().Next(randomMessages.Count());
-            String messageToSend = (randomMessages[randomIndex]);
+            var randomIndex = new Random().Next(randomMessages.Count());
+            var messageToSend = (randomMessages[randomIndex]);
 
             var message = twilio.SendMessage(YOUR_NUMBER, HER_NUMBER, messageToSend);
             Console.WriteLine(message.Sid);
