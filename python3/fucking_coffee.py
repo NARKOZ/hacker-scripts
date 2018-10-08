@@ -17,14 +17,13 @@ def main():
         return
 
     time.sleep(17)
-
     conn = telnetlib.Telnet(host=COFFEE_MACHINE_ADDR)
     conn.open()
     conn.expect([COFFEE_MACHINE_PROM])
     conn.write(COFFEE_MACHINE_PASS)
 
     conn.write('sys brew')
-    time.sleep(64)
+    time.sleep(24)
 
     conn.write('sys pour')
     conn.close()
