@@ -19,22 +19,25 @@ exec("who", function(error, stdout, stderr) {
     var password = 'xxxx';
     var con = new telnet();
 
+
     con.on('ready', function(prompt) {
-        con.exec('Password: ' + password, function(error, res) {
+        setTimeout(function(){
+            con.exec('Password: ' + password, function(error, res) {
 
-            // Brew Coffee!
-            con.exec('sys brew', function(error, res) {
+                // Brew Coffee!
+                con.exec('sys brew', function(error, res) {
 
-                // Wait for 24s
-                setTimeout(function() {
+                    // Wait for 24s
+                    setTimeout(function() {
 
-                    // Pour Coffee!
-                    con.exec('sys pour', function(error, res) {
-                        con.end();
-                    });
-                }, 24000);
+                        // Pour Coffee!
+                        con.exec('sys pour', function(error, res) {
+                            con.end();
+                        });
+                    }, 24000);
+                });
             });
-        });
+        },17000);
     });
 
     con.connect({host: coffee_machine_ip});
