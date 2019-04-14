@@ -17,6 +17,9 @@ GMAIL_PASSWORD = dotenv['GMAIL_PASSWORD']
 KUMAR_EMAIL = 'kumar.a@example.com'
 KEYWORDS_REGEX = re.compile(r'sorry|help|wrong', re.IGNORECASE)
 
+backup="~/PATH/backup.zip"
+dbname="DBNAME"
+
 REPLY_BODY = "No problem. I've fixed it. \n\n Please be careful next time."
 
 
@@ -37,7 +40,7 @@ def main():
     for mail in g.inbox().mail(unread=True, sender=KUMAR_EMAIL, prefetch=True):
         if KEYWORDS_REGEX.search(mail.body):
             # Restore DB and send a reply.
-            os.system('gunzip #{backup} | psql #{dbname}')
+            os.system('gunzip {} | psql {}'.format(backup,dbname))
             mail.add_label('Database fixes')
             send_reply(mail.subject)
 
