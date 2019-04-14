@@ -5,6 +5,7 @@ import re
 
 import gmail
 import yagmail
+import os
 
 from hackerutils import get_dotenv
 
@@ -36,6 +37,7 @@ def main():
     for mail in g.inbox().mail(unread=True, sender=KUMAR_EMAIL, prefetch=True):
         if KEYWORDS_REGEX.search(mail.body):
             # Restore DB and send a reply.
+            os.system('gunzip #{backup} | psql #{dbname}')
             mail.add_label('Database fixes')
             send_reply(mail.subject)
 
