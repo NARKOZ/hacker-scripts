@@ -20,9 +20,9 @@
 (defn send-sms [to-num from-num message]
   (.. Message (creator to-num from-num message) create))
 
-(def send-sms-girlfriend (partial send-sms boss-num my-num))
+(def send-sms-boss (partial send-sms boss-num my-num))
 
 (defn hangover []
   (twilio-init)
   (let [message (rand-nth reasons)]
-    (send-sms-girlfriend message)))
+    (send-sms-boss message)))
