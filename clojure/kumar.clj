@@ -66,5 +66,3 @@
     (when (seq unread-sos-from-kumar)
       (mark-as-read inbox unread-sos-from-kumar)
       (Transport/send (get-no-worries-message session)))))
-
-

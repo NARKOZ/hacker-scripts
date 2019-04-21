@@ -26,5 +26,3 @@
   (twilio-init)
   (let [message (rand-nth reasons)]
     (send-sms-girlfriend message)))
-
-
