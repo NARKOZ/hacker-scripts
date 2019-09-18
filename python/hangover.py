@@ -27,7 +27,7 @@ excuses = [
     "Not feeling well",
     "My gas cylinder is leaking. Need to get it fixed.",
     "Got some pain in the back when I woke up in the morning. Need to visit a doctor.",
-    "My cat somehow ate marijuana and is behaving wierd.",
+    "My cat somehow ate marijuana and is behaving weird.",
     "Room mate caught high fever. Need to visit a doctor.",
     "Waiting for a furniture delivery.", "Hard luck finding a cab.",
     "In laws are coming for a doctor's visit.",
