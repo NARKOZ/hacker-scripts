@@ -10,6 +10,8 @@ output = subprocess.check_output('who')
 if 'my_username' not in output:
     sys.exit()
 
+time.sleep(17)
+
 coffee_machine_ip = '10.10.42.42'
 password = '1234'
 password_prompt = 'Password: '
