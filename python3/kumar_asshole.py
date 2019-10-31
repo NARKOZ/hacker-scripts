@@ -16,7 +16,7 @@ GMAIL_PASSWORD = dotenv['GMAIL_PASSWORD']
 KUMAR_EMAIL = 'kumar.a@example.com'
 KEYWORDS_REGEX = re.compile(r'sorry|help|wrong', re.IGNORECASE)
 
-REPLY_BODY = "No problem. I've fixed it. \n\n Please be careful next time."
+REPLY_BODY = "No problem. I've fixed it. \n\nPlease be careful next time."
 
 
 yagmail.register(GMAIL_USERNAME, GMAIL_PASSWORD)
