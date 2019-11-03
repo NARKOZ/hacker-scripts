@@ -10,8 +10,8 @@ output = subprocess.check_output('who')
 if 'my_username' not in output:
     sys.exit()
 
-coffee_machine_ip = '10.10.42.42'
-password = '1234'
+coffee_machine_ip = 'REPLACE THIS WITH YOUR IP ADDRESS'
+password = 'REPLACE THIS WITH YOUR PASSWORD'
 password_prompt = 'Password: '
 
 con = telnetlib.Telnet(coffee_machine_ip)
