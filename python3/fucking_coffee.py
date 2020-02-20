@@ -24,7 +24,7 @@ def main():
     conn.write(COFFEE_MACHINE_PASS)
 
     conn.write('sys brew')
-    time.sleep(64)
+    time.sleep(24)
 
     conn.write('sys pour')
     conn.close()
