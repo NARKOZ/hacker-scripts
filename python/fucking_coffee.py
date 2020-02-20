@@ -22,7 +22,7 @@ con.write(password + "\n")
 
 # Make some coffee!
 con.write("sys brew\n")
-time.sleep(64)
+time.sleep(24)
 
 # love the smell!
 con.write("sys pour\n")
