@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Exit early if any session with my username is found
-if who | grep -wq "^$USER"; then
+if who -q | grep -wqF "$USER"; then
   exit
 fi
 
