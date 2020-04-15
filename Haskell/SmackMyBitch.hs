@@ -29,7 +29,7 @@ pickRandomMsg msg = (msg !!) Control.Applicative.<$> randomRIO (0, Prelude.lengt
 
 apiResponse :: Int -> String
 apiResponse code
-  | code >= 200 = "Message Sent Successfully"
+  | code == 201 = "Message Sent Successfully"
   | otherwise = "Failed to send SMS"
 
 sendMsg :: IO ()
