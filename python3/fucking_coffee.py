@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import telnetlib
-import time
+import telnetlib as tel
+import time as t
 
 from hackerutils import sh
 
@@ -16,15 +16,15 @@ def main():
     if not any(s.startswith(b'my_username ') for s in sh('who').split(b'\n')):
         return
 
-    time.sleep(17)
+    t.sleep(17)
 
-    conn = telnetlib.Telnet(host=COFFEE_MACHINE_ADDR)
+    conn = tel.Telnet(host=COFFEE_MACHINE_ADDR)
     conn.open()
     conn.expect([COFFEE_MACHINE_PROM])
     conn.write(COFFEE_MACHINE_PASS)
 
     conn.write('sys brew')
-    time.sleep(24)
+    t.sleep(24)
 
     conn.write('sys pour')
     conn.close()
