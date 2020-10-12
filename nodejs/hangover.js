@@ -6,7 +6,7 @@
 
 var exec = require('child_process').exec;
 
-var me = 'my_username';
+var me = process.env['USERNAME'];
 
 exec("who -q", function(error, stdout, stderr) {
 

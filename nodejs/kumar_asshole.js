@@ -11,7 +11,7 @@ send. Could try implementing with Gmail Node API later.
 var GMAIL_USERNAME = process.env['GMAIL_USERNAME'];
 var GMAIL_PASSWORD = process.env['GMAIL_PASSWORD'];
 
-var KUMAR_EMAIL = 'kumar.asshole@example.com';
+var KUMAR_EMAIL = process.env['KUMAR_EMAIL'];
 var EMAIL = 'No worries mate, be careful next time';
 
 // Scan for unread email from Kumar

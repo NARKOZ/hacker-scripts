@@ -8,15 +8,15 @@
 var exec = require('child_process').exec;
 var telnet = require('telnet-client');
 
-var ME = 'my_username';
+var ME = process.env['USERNAME'];
 var AUTHORIZED_YO_NAMES = [ME];
 var COFFEE_MACHINE_YO_NAME = 'coffeemachine';
 
 // These should be same as what you set up in the Yo API
-var CALLBACK_URL = 'http://xxx.com';
-var CALLBACK_ENDPOINT = '/coffeemachine';
+var CALLBACK_URL = process.env['CALLBACK_URL'];
+var CALLBACK_ENDPOINT = '/' + process.env['CALLBACK_ENDPOINT'];
 
-var PORT = '3000';
+var PORT = process.env['PORT'];
 
 exec("who -q", function(error, stdout, stderr) {
 

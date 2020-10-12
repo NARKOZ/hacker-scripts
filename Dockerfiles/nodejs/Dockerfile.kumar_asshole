@@ -1,0 +1,13 @@
+FROM node:lts-alpine3.12
+LABEL author="fazenda"
+LABEL project="hacker-scripts-kumar-asshole"
+
+ENV KUMAR_EMAIL="kumar.asshole@example.com"
+ENV GMAIL_USERNAME=""
+ENV GMAIL_PASSWORD=""
+
+RUN [ "npm", "install", "nodemailer", "imap" ]
+
+COPY kumar_asshole.js .
+
+ENTRYPOINT [ "node", "./kumar_asshole.js" ]

@@ -1,0 +1,18 @@
+FROM node:lts-alpine3.12
+LABEL author="fazenda"
+LABEL project="hacker-scripts:fucking_coffee"
+
+ENV PORT="3000"
+ENV CALLBACK_URL="http://xxx.com"
+ENV CALLBACK_ENDPOINT="coffeemachine"
+ENV COFFEE_MACHINE_IP="xxx.xxx.xxx.xxx"
+ENV USERNAME="my_username"
+ENV PASSWORD="xxxx"
+
+RUN [ "npm", "install", "express", "telnet-client" ]
+
+COPY fucking_coffee_yo_server.js .
+COPY fucking_coffee.js .
+
+ENTRYPOINT [ "node", "./fucking_coffee_yo_server.js" ]
+CMD [ "node", "./fucking_coffee" ]
