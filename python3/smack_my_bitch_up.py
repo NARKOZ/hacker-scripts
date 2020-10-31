@@ -10,7 +10,6 @@ from twilio.rest import Client, TwilioException
 
 from hackerutils import get_log_path, sh
 
-# Load .env file
 load_dotenv()
 
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
