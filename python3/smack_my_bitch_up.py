@@ -4,20 +4,19 @@
 import getpass
 import os
 import random
-import subprocess
 
+from dotenv import load_dotenv
 from twilio.rest import Client, TwilioException
 
-TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"]
-TWILIO_AUTH_TOKEN = os.environ["TWILIO_AUTH_TOKEN"]
+from hackerutils import get_log_path, sh
 
-LOG_FILE_PATH = os.getcwd() + "/smack_my_bitch_up.txt"
+# Load .env file
+load_dotenv()
 
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 
-def sh(*args):
-    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
-    stdout, _ = proc.communicate()
-    return stdout
+LOG_FILE_PATH = get_log_path("smack_my_bitch_up.txt")
 
 
 def main():
@@ -29,8 +28,8 @@ def main():
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
     # Phone numbers.
-    my_number = "+" + os.environ["TWILIO_TRIAL_NO"]
-    her_number = "+" + os.environ["TWILIO_HER_NO"]
+    my_number = "+" + os.getenv("TWILIO_TRIAL_NO")
+    her_number = "+" + os.getenv("TWILIO_HER_NO")
 
     reasons = [
         "Working hard",
