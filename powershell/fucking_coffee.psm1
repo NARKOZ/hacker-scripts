@@ -58,5 +58,5 @@ Function Send-TelNetCommands
 
     $writer.WriteLine($command)
     $writer.Flush()
-    Start-Sleep -Milliseconds $WaitTime
+    Start-Sleep -s $WaitTime
 }
