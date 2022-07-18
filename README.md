@@ -22,7 +22,7 @@ story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
 
 > xxx: holy sh*t I'm keeping those
 
-Original: http://bash.im/quote/436725 (in Russian)  
+Original: http://bash.im/quote/436725 (in Russian)  (Archive.org [link](https://web.archive.org/web/20210226092253/http://bash.im/quote/436725))
 Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
 
 ## Usage
