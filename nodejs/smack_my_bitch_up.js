@@ -6,7 +6,7 @@
 
 var exec = require('child_process').exec;
 
-var me = 'my_username';
+var me = process.env['USERNAME'];
 
 exec("who -q", function(error, stdout, stderr) {
 
@@ -18,8 +18,8 @@ exec("who -q", function(error, stdout, stderr) {
     var TWILIO_AUTH_TOKEN  = process.env['TWILIO_AUTH_TOKEN'];
 
     // Phone numbers
-    var MY_NUMBER = '+xxx';
-    var HER_NUMBER = '+xxx';
+    var MY_NUMBER = process.env['MY_NUMBER'];
+    var HER_NUMBER = process.env['HER_NUMBER'];
 
     // Reasons
     var reasons = [

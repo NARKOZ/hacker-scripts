@@ -1,0 +1,15 @@
+FROM node:lts-alpine3.12
+LABEL author="fazenda"
+LABEL project="hacker-scripts:smack_my_bitch_up"
+
+ENV MY_NUMBER="+xxx"
+ENV HER_NUMBER="+xxx"
+ENV USERNAME="my_username"
+ENV TWILIO_ACCOUNT_SID=""
+ENV TWILIO_AUTH_TOKEN=""
+
+RUN [ "npm", "install", "twilio" ]
+
+COPY smack_my_bitch_up.js .
+
+ENTRYPOINT [ "node", "./smack_my_bitch_up.js" ]

@@ -42,6 +42,39 @@ GMAIL_PASSWORD=password
 For Ruby scripts you need to install gems:
 `gem install dotenv twilio-ruby gmail`
 
+## Docker
+
+If you just want to run without having to install any packages, just run the following commands:
+
+```shell
+docker run -e ... fazenda/hacker-scripts-{PROJECT}
+```
+
+Don't forget to pass the environment variables before with the '-e' in front followed by it, for example:
+
+```shell
+docker run -e KUMAR_EMAIL="kumar.asshole@example.com" -e GMAIL_USERNAME="" -e GMAIL_PASSWORD="" fazenda/hacker-scripts-kumar-asshole
+```
+
+Each image averages about 30 MB. The values for `PROJECT` being:
+
+- `fucking-coffe`
+- `hangover`
+- `kumar-asshole`
+- `smack-my-bitch-up`
+
+And if you want to make your own build, just run the `make` command inside the [Dockerfiles](./Dockerfiles) folder, passing the following arg:
+
+- REPO_OWNER = `yourDockerHubUsername`
+- MULTIARCH = `true` / `false` -- to build for the following architectures:
+  - amd64
+  - arm/v6
+  - arm/v7
+  - arm64/v8
+  - ppc64le
+  - s390x
+- VERSION = Tag value
+
 ## Cron jobs
 
 ```sh

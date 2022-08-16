@@ -1,0 +1,15 @@
+FROM node:lts-alpine3.12
+LABEL author="fazenda"
+LABEL project="hacker-scripts:hangover"
+
+ENV USERNAME="my_username"
+ENV TWILIO_ACCOUNT_SID=""
+ENV TWILIO_AUTH_TOKEN=""
+
+RUN [ "npm", "install", "twilio" ]
+
+COPY hangover.js .
+
+RUN sed -i 's/my_username/${USERNAME}/g' hangover.js
+
+ENTRYPOINT [ "node", "./hangover.js" ]
