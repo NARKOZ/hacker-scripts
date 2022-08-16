@@ -32,6 +32,9 @@ def main():
         'Pipes broke',
         'Food poisoning',
         'Not feeling well',
+		'Flat tires',
+		'Got robbed',
+		'Lost wallet',
     ]
 
     try:
