@@ -21,6 +21,11 @@ excuse = [
   'Locked out',
   'Pipes broke',
   'Food poisoning',
+  'Go for Pregnancy test',
+  'Get up late',
+  'Rotary grandmother crossing the road',
+  'Take the phone at home',
+  'Traffic jam',
   'Not feeling well'
 ].sample
 
