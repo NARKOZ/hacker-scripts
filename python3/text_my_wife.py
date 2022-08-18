@@ -13,7 +13,7 @@ dotenv = get_dotenv()
 TWILIO_ACCOUNT_SID = dotenv['TWILIO_ACCOUNT_SID']
 TWILIO_AUTH_TOKEN = dotenv['TWILIO_AUTH_TOKEN']
 
-LOG_FILE_PATH = get_log_path('smack_my_bitch_up.txt')
+LOG_FILE_PATH = get_log_path('text_my_wife.txt')
 
 
 def main():
