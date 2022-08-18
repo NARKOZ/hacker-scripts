@@ -6,21 +6,17 @@ English | [简体中文](./README.zh-CN.md)
 Based on a _[true
 story](https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/)_:
 
-> xxx: OK, so, our build engineer has left for another company. The dude was literally living inside the terminal. You know, that type of a guy who loves Vim, creates diagrams in Dot and writes wiki-posts in Markdown... If something - anything - requires more than 90 seconds of his time, he writes a script to automate that.
+> xxx: YYY (our build engineer) got lured away (was hired by another company). The dude was literally living inside the terminal and Vim, drawing diagrams in Dot, writing docs in Markdown, if anything would require more than 1.5 minutes, he would write a script. Now sitting and analyzing his legacy. 
 
-> xxx: So we're sitting here, looking through his, uhm, "legacy"
+> xxx: From the awesome ones
 
-> xxx: You're gonna love this
+> xxx: [`smack-my-bitch-up.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/smack-my-bitch-up.sh) - sends "late at work" apparently to his wife and picks excuses from a list. Is set up in a cron, shoots after 9pm if there are any active SSH-sessions on the workstation with his login.
 
-> xxx: [`smack-my-bitch-up.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/smack-my-bitch-up.sh) - sends a text message "late at work" to his wife (apparently). Automatically picks reasons from an array of strings, randomly. Runs inside a cron-job. The job fires if there are active SSH-sessions on the server after 9pm with his login.
+> xxx: [`kumar-asshole.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/kumar-asshole.sh) - scans the inbox, searching for emails from "Kumar" (foreign DBA with a self explaining last name) with keywords (sorry, help, etc.) rolls back the mentioned staging database to the latest backup and replies like "no worries, be careful next time". Seems like Kumar really annoyed him.
 
-> xxx: [`kumar-asshole.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/kumar-asshole.sh) - scans the inbox for emails from "Kumar" (a DBA at our clients). Looks for keywords like "help", "trouble", "sorry" etc. If keywords are found - the script SSHes into the clients server and rolls back the staging database to the latest backup. Then sends a reply "no worries mate, be careful next time".
+> xxx: [`hangover.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/hangover.sh) - set in cron to specific dates, sends emails like "not feeling well, gonna work from home" again if there are no interactive sessions on the workstation at 8:45am.
 
-> xxx: [`hangover.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/hangover.sh) - another cron-job that is set to specific dates. Sends automated emails like "not feeling well/gonna work from home" etc. Adds a random "reason" from another predefined array of strings. Fires if there are no interactive sessions on the server at 8:45am.
-
-> xxx: (and the oscar goes to) [`fucking-coffee.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/fucking-coffee.sh) - this one waits exactly 17 seconds (!), then opens a telnet session to our coffee-machine (we had no frikin idea the coffee machine is on the network, runs linux and has a TCP socket up and running) and sends something like `sys brew`. Turns out this thing starts brewing a mid-sized half-caf latte and waits another 24 (!) seconds before pouring it into a cup. The timing is exactly how long it takes to walk to the machine from the dudes desk.
-
-> xxx: holy sh*t I'm keeping those
+> xxx: And finally, the grand prize: [`fucking-coffee.sh`](https://github.com/NARKOZ/hacker-scripts/blob/master/fucking-coffee.sh) - waits 17 seconds (!!!), logins via SSH to our coffee-machine (geez, we had no frikin idea it is in the network, and it has a sshd up and running) and sends some gibberish. By trial and error we found out that IT starts brewing a mid-sized half-caf latte, which starts puring into the cup exactly by the time when a leisurely walking man arrives from his desk to the coffee-machine.
 
 Original: http://bash.im/quote/436725 (in Russian)  (Archive.org [link](https://web.archive.org/web/20210226092253/http://bash.im/quote/436725))
 Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
