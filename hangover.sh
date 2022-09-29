@@ -1,8 +1,19 @@
 #!/bin/sh -e
 
+# Get User
+USER=whoami
+
 # Exit early if any session with my username is found
 if who | grep -wq $USER; then
   exit
+fi
+
+# Get user home path and username
+PATH=~
+
+# Checks to see if job is in crontab already and if not updates cronto run the script only on weekdays @ 8:45am
+if ! crontab -u $USER -l | grep hangover.sh then
+  echo "45 8 * * 1-5 $PATH/hangover.sh" >> /etc/crontab
 fi
 
 # Phone numbers
