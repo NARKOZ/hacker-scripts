@@ -5,6 +5,8 @@ import subprocess
 import telnetlib
 import time
 
+import config
+
 # exit if no sessions with my username are found
 output = subprocess.check_output('who')
 if 'my_username' not in output:
@@ -26,4 +28,4 @@ time.sleep(24)
 
 # love the smell!
 con.write("sys pour\n")
-con.close()    
+con.close()
