@@ -11,7 +11,7 @@ Dotenv.load
 TWILIO_ACCOUNT_SID = ENV['TWILIO_ACCOUNT_SID']
 TWILIO_AUTH_TOKEN  = ENV['TWILIO_AUTH_TOKEN']
 
-@twilio = Twilio::REST::Client.new TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+twilio = Twilio::REST::Client.new TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
 # Phone numbers
 my_number  = '+xxx'
@@ -20,11 +20,13 @@ her_number = '+xxx'
 reason = [
   'Working hard',
   'Gotta ship this feature',
-  'Someone fucked the system again'
+  'Someone fucked the system again',
+  'Gotta fix bugs urgently',
+  'Gotta scale up the system'
 ].sample
 
 # Send a text message
-@twilio.messages.create(
+twilio.messages.create(
   from: my_number, to: her_number, body: "Late at work. #{reason}"
 )
 

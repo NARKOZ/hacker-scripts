@@ -42,6 +42,12 @@ GMAIL_PASSWORD=password
 For Ruby scripts you need to install gems:
 `gem install dotenv twilio-ruby gmail`
 
+## Cron jobs for Ruby
+
+`'" 20 21 * * 1-5 /usr/local/bin/ruby /local/myuser/rubyscript/smack_my_bitch_up.rb >>
+/local/myuser/rubyscript/log.txt "'`
+and remaining crons in same way for Ruby.  
+
 ## Cron jobs
 
 ```sh
