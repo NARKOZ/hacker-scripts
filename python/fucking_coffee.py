@@ -16,6 +16,7 @@ coffee_machine_ip = '10.10.42.42'
 password = '1234'
 password_prompt = 'Password: '
 
+time.sleep(17)
 con = telnetlib.Telnet(coffee_machine_ip)
 con.read_until(password_prompt)
 con.write(password + "\n")

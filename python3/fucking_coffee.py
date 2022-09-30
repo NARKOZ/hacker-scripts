@@ -17,7 +17,6 @@ def main():
         return
 
     time.sleep(17)
-
     conn = telnetlib.Telnet(host=COFFEE_MACHINE_ADDR)
     conn.open()
     conn.expect([COFFEE_MACHINE_PROM])
