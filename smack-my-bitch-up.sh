@@ -1,7 +1,7 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Exit early if no sessions with my username are found
-if ! who | grep -wq $USER; then
+if ! who -q | grep -wFq "$USER"; then
   exit
 fi
 
@@ -14,18 +14,18 @@ REASONS=(
   'Gotta ship this feature'
   'Someone fucked the system again'
 )
-rand=$[ $RANDOM % ${#REASONS[@]} ]
+rand=$(( RANDOM % ${#REASONS[@]} ))
 
 RANDOM_REASON=${REASONS[$rand]}
 MESSAGE="Late at work. "$RANDOM_REASON
 
 # Send a text message
-RESPONSE=`curl -fSs -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" \
+RESPONSE=$(curl -fSs -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" \
   -d "From=$MY_NUMBER" -d "To=$HER_NUMBER" -d "Body=$MESSAGE" \
-  "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_ACCOUNT_SID/Messages"`
+  "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_ACCOUNT_SID/Messages")
 
 # Log errors
-if [ $? -gt 0 ]; then
+if (( $? )); then
   echo "Failed to send SMS: $RESPONSE"
   exit 1
 fi
