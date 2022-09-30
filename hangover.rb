@@ -18,10 +18,18 @@ my_number      = '+xxx'
 number_of_boss = '+xxx'
 
 excuse = [
-  'Locked out',
-  'Pipes broke',
-  'Food poisoning',
-  'Not feeling well'
+ 'I thought of quitting today, but then decided not to, so I came in late.',
+'My hair caught on fire from my blow dryer.',
+'I was detained by Homeland Security.',
+'I had to chase my cows back into the field.',
+'A black bear entered my carport and decided to take a nap on the hood of my car.',
+'My lizard had to have emergency surgery in the morning and died during surgery. I had to mourn while deciding whether to have the lizard disposed of by the vet or bring the lizard corpse with me to work.',
+'There was fresh powder on the hill. I had to go skiing.',
+'There was a store grand opening and I wanted to get the opening day sales.',
+'I had to finish watching “My Name is Earl.”',
+'All of my clothes were stolen.',
+'I was confused by the time change and unsure if it was “spring forward” or “fall back.”',
+'A Vaseline truck overturned on the highway and cars were slipping left and right.'
 ].sample
 
 # Send a text message
