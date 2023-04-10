@@ -1,0 +1,9 @@
+smack_my_bitch_up + hangover
+-rand = "0.8.5"
+-dotenv = "0.15.0"
+-openapi = { path = "./twilio-rust" }
+-tokio = { version = "1.21.1", features = ["rt", "rt-multi-thread", "macros"] }
+
+fucking_coffee
+-pure rust
+
