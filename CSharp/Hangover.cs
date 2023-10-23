@@ -16,12 +16,7 @@ const string numberOfBoss = "+xxx";
 
 TwilioClient.Init(twilioAccountSid, authToken);
 
-string[] excuses = {
-    "Locked out",
-    "Pipes broke",
-    "Food poisoning",
-    "Not feeling well"
-};
+var excuses = await new ChatGpt().GetExcusesToMyBoss();
 
 var rand = new Random().Next(excuses.Length);
 var message = $"Gonna work from home. {excuses[rand]}";
