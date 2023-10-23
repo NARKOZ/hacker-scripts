@@ -1,5 +1,5 @@
 
-English | [简体中文](./README.zh-CN.md)
+English | [简体中文](./README.zh-CN.md) | [Português](./README.pt-BR.md)
 
 # Hacker Scripts
 

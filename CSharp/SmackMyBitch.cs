@@ -1,35 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
-namespace Hacker_Scripts
+//Exit early if any session with my username is found
+if (args[0] is null)
 {
-    class SmackMyBitch
-    {
-        public static string TWILIO_ACCOUNT_SID = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
-        public static string AUTH_TOKEN = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
-
-        public static string YOUR_NUMBER = "9879789978";
-        public static string HER_NUMBER = "3213213233";
-
-        static void Main(string[] args)
-        {
-            var twilio = new TwilioRestClient(TWILIO_ACCOUNT_SID, AUTH_TOKEN);
-
-            string[] randomMessages = {
-                "Working hard",
-                "Gotta ship this feature",
-                "Someone fucked the system again"
-            };
-
-            int randomIndex = new Random().Next(randomMessages.Count());
-            String messageToSend = (randomMessages[randomIndex]);
-
-            var message = twilio.SendMessage(YOUR_NUMBER, HER_NUMBER, messageToSend);
-            Console.WriteLine(message.Sid);
-        }
-    }
+    return;
 }
+
+var twilioAccountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
+var authToken = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
+
+//Phone numbers
+const string myNumber = "+xxx";
+const string herNumber = "+xxx";
+
+TwilioClient.Init(twilioAccountSid, authToken);
+
+var excuses = await new ChatGpt().GetReasonsToMyBitch();
+
+var randomNumber = new Random().Next(reasons.Length);
+var reason = reasons[randomNumber];
+var message = $"Late at work. {reason}";
+
+//Send a text message
+MessageResource.Create(
+    body: message,
+    from: new Twilio.Types.PhoneNumber(myNumber),
+    to: new Twilio.Types.PhoneNumber(herNumber)
+);
+
+//Log this
+Console.WriteLine($@"Message sent at: #{DateTime.Now} | Reason: #{reason}");
