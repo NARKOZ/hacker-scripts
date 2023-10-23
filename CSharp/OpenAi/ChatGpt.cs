@@ -23,7 +23,7 @@ public sealed class ChatGpt
         _httpClient.DefaultRequestHeaders.Add(AcceptHeaderRequest, ApplicationJsonMediaTypeRequest);
     }
     
-    public async Task<List<string>?> GetReasonsToMyBitch()
+    public async Task<List<string>> GetReasonsToMyBitch()
     {
         const string prompt = "Return only a CSV list separated by semicolons, of phrases with various reasons that justify " +
                               "my delay in leaving work, to my wife. Do not repeat this question in your response. " +
@@ -32,16 +32,16 @@ public sealed class ChatGpt
         return await DoRequest(prompt);
     }
     
-    public async Task<List<string>?> GetExcusesToMyMates()
+    public async Task<List<string>> GetExcusesToMyBoss()
     {
         const string prompt = "Return only a CSV list separated by semicolons, of phrases with various reasons that " +
-                              "justify why I can't go out for a drink with my friends. Do not repeat this question in " +
+                              "justify why I can't go out for a drink with my boss. Do not repeat this question in " +
                               "your response. Only the raw CSV. No double quotes. Just raw CSV";
 
         return await DoRequest(prompt);
     }
 
-    private async Task<List<string>?> DoRequest(string prompt)
+    private async Task<List<string>> DoRequest(string prompt)
     {
         var promptJson = new CompletionChatRequest
         {
@@ -58,6 +58,15 @@ public sealed class ChatGpt
         var responseContent = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
 
         var response = JsonSerializer.Deserialize<CompletionChatResponse>(responseContent, _serializerOptions);
-        return response?.Content?.Split(";").ToList();
+
+        if (response?.Content != null)
+        {
+            return response.Content.Split(";").ToList();    
+        }
+
+        return new List<string>
+        {
+            "Talk to you later"
+        };
     }
 }
