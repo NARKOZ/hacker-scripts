@@ -23,7 +23,7 @@ public sealed class ChatGpt
         _httpClient.DefaultRequestHeaders.Add(AcceptHeaderRequest, ApplicationJsonMediaTypeRequest);
     }
     
-    public async Task<IEnumerable<string>?> GetReasonsToMyBitch()
+    public async Task<List<string>?> GetReasonsToMyBitch()
     {
         const string prompt = "Return only a CSV list separated by semicolons, of phrases with various reasons that justify " +
                               "my delay in leaving work, to my wife. Do not repeat this question in your response. " +
@@ -32,7 +32,7 @@ public sealed class ChatGpt
         return await DoRequest(prompt);
     }
     
-    public async Task<IEnumerable<string>?> GetExcusesToMyMates()
+    public async Task<List<string>?> GetExcusesToMyMates()
     {
         const string prompt = "Return only a CSV list separated by semicolons, of phrases with various reasons that " +
                               "justify why I can't go out for a drink with my friends. Do not repeat this question in " +
@@ -41,7 +41,7 @@ public sealed class ChatGpt
         return await DoRequest(prompt);
     }
 
-    private async Task<IEnumerable<string>?> DoRequest(string prompt)
+    private async Task<List<string>?> DoRequest(string prompt)
     {
         var promptJson = new CompletionChatRequest
         {
@@ -58,6 +58,6 @@ public sealed class ChatGpt
         var responseContent = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
 
         var response = JsonSerializer.Deserialize<CompletionChatResponse>(responseContent, _serializerOptions);
-        return response?.Content?.Split(";");
+        return response?.Content?.Split(";").ToList();
     }
 }
