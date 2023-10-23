@@ -16,11 +16,7 @@ const string herNumber = "+xxx";
 
 TwilioClient.Init(twilioAccountSid, authToken);
 
-string[] reasons = {
-    "Working hard",
-    "Gotta ship this feature",
-    "Someone fucked the system again"
-};
+var excuses = await new ChatGpt().GetReasonsToMyBitch();
 
 var randomNumber = new Random().Next(reasons.Length);
 var reason = reasons[randomNumber];
